@@ -1,0 +1,118 @@
+.timeline-section {
+  padding: 2rem 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.timeline-container {
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 3.5rem;
+  top: 3rem;
+  bottom: 3rem;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.timeline-item:hover {
+  transform: translateX(10px);
+}
+
+.timeline-icon-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.timeline-item.active .timeline-icon-container {
+  background: var(--color-primary-light);
+  color: white;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.timeline-content {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all var(--transition-normal);
+}
+
+.timeline-item.active .timeline-content {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.timeline-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.timeline-date {
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hide-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  transition: all var(--transition-normal);
+}
+
+.show-desc {
+  max-height: 100px;
+  opacity: 1;
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-normal);
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 2.5rem;
+  }
+  .timeline-item {
+    gap: 1rem;
+  }
+  .timeline-icon-container {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
